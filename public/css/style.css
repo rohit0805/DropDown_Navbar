@@ -1,0 +1,142 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto",sans-serif;
+  line-height: 1.4;
+}
+
+#navbar {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background-image: linear-gradient(rgba(113, 113, 119, 0.7), darkcyan);
+  color: white;
+}
+
+#navbar .nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+#navbar .nav .left {
+  padding: 0.25rem 2rem;
+  background-color: #212c7c;
+  border-radius: 0 50% 50% 0;
+  transition: all 1s ease-in-out;
+  animation-name: travel;
+  animation-duration: 3s;
+  animation-timing-function: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  animation-fill-mode: forwards;
+  animation-delay: 1s;
+}
+
+#navbar .nav .right ul {
+  display: flex;
+}
+
+#navbar .nav .right ul li {
+  position: relative;
+  list-style-type: none;
+}
+
+#navbar .nav .right ul li ul {
+  display: none;
+}
+
+#navbar .nav .right ul li:hover ul {
+  display: block;
+  position: absolute;
+  background-image: linear-gradient(#212c7c, darkcyan);
+}
+
+#navbar .nav .right ul li:hover ul li {
+  border-bottom: 0.5px dotted white;
+  position: relative;
+}
+
+#navbar .nav .right ul li:hover ul li:last-child {
+  border-bottom: none;
+}
+
+#navbar .nav .right ul li:hover ul li ul {
+  display: none;
+}
+
+#navbar .nav .right ul li:hover ul li:hover ul {
+  display: block;
+  position: absolute;
+  left: 128px;
+  top: 0px;
+  width: 110%;
+}
+
+#navbar .nav .right ul li a {
+  display: block;
+  text-decoration: none;
+  color: #fff;
+  padding: 1rem;
+  transition: all 0.35s ease-in-out;
+}
+
+#navbar .nav .right ul li a:hover {
+  background-color: #212c7c;
+}
+
+@keyframes travel {
+  0% {
+    background-color: darkcyan;
+  }
+  50% {
+    background-image: linear-gradient(to right, #212c7c, yellow);
+    padding-left: 8rem;
+    padding-right: 4rem;
+  }
+  100% {
+    background-image: linear-gradient(to right, #212c7c, yellowgreen);
+    padding-right: 4rem;
+    color: lightgoldenrodyellow;
+  }
+}
+
+#main {
+  position: relative;
+  top: -54px;
+  background-color: rgba(113, 113, 119, 0.7);
+  width: 100%;
+  text-align: center;
+  height: 100vh;
+}
+
+#main .main-content {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding: 260px 1rem 0 1rem;
+}
+
+#main .main-content h1 {
+  font-size: 3rem;
+}
+
+#main .main-content p {
+  font-size: 1.2rem;
+}
+
+#main .main-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("https://source.unsplash.com/random") no-repeat center center/cover;
+  z-index: -1;
+  background-attachment: fixed;
+}
